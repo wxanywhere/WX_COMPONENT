@@ -1,0 +1,44 @@
+﻿引用资源
+http://www.codeproject.com/Articles/24681/WPF-Diagram-designItem-Part
+
+        /// <summary>
+        /// 设计工作区打开完成事件
+        /// </summary>
+        event EventHandler DesignWorkspaceOpened;
+
+        /// <summary>
+        /// 设计工作区关闭进行事件
+        /// </summary>
+        event EventHandler DesignWorkspaceClosing;
+
+        /// <summary>
+        /// 设计工作区关闭完成事件
+        /// </summary>
+        event EventHandler DesignWorkspaceClosed;
+
+        public event EventHandler DesignWorkspaceOpened;
+        public virtual void RaiseDesignWorkspaceOpened()
+        {
+            if (DesignWorkspaceOpened != null)
+            {
+                DesignWorkspaceOpened(this, new EventArgs());
+            }
+        }
+
+        public event EventHandler DesignWorkspaceClosing;
+        public virtual void RaiseDesignWorkspaceClosing()
+        {
+            if (DesignWorkspaceClosing != null)
+            {
+                DesignWorkspaceClosing(this, new EventArgs());
+            }
+        }
+
+        public event EventHandler DesignWorkspaceClosed;
+        public virtual void RaiseDesignWorkspaceClosed()
+        {
+            if (DesignWorkspaceClosed != null)
+            {
+                DesignWorkspaceClosed(this, new EventArgs());
+            }
+        }

@@ -1,0 +1,377 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ds="clr-namespace:WX.Windows.Diagram.Designer;assembly=WX.Windows.Diagram.Designer.Kernel">
+
+    <Style x:Key="BusinessArchitechPathItemStyle" TargetType="{x:Type Path}">
+        <Setter Property="Stroke" Value="#000000"/>
+        <Setter Property="StrokeThickness" Value="0.5"/>
+        <Setter Property="StrokeLineJoin" Value="Round"/>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="Fill" Value="#FFE9C0BE"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+    </Style>
+
+    <Style x:Key="BusinessArchitechStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+    </Style>
+
+    <!--<Style x:Key="BusinessDomainStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource BusinessArchitechStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <Path Data="M 10.5,0.500015L 120.5,0.500015C 126.023,0.500015 130.5,4.97713 130.5,10.5L 130.5,75.5C 130.5,81.0228 126.023,85.5 120.5,85.5L 10.5,85.5C 4.97715,85.5 0.500002,81.0228 0.500002,75.5L 0.500002,10.5C 0.500002,4.97713 4.97715,0.500015 10.5,0.500015 Z" Margin="0,0,0,0" Style="{StaticResource BusinessArchitechPathItemStyle}" Grid.ColumnSpan="3" Stretch="Fill" Grid.RowSpan="3" />
+                        <Path Data="M 99.7501,8.66679L 112.75,8.66679C 116.064,8.66679 118.75,11.3531 118.75,14.6668L 118.75,14.6668C 118.75,17.9805 116.064,20.6668 112.75,20.6668L 99.7501,20.6668C 96.4363,20.6668 93.7501,17.9805 93.7501,14.6668L 93.7501,14.6668C 93.7501,11.3531 96.4363,8.66679 99.7501,8.66679 Z" Style="{StaticResource BusinessArchitechPathItemStyle}"  Stretch="Fill" Fill="White"  Grid.Column="1" Grid.Row="1"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+
+    <!-- 业务域样式 -->
+    <Style x:Key="BusinessDomainStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource BusinessArchitechStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <Path Data="M 10.5,0.500015L 120.5,0.500015C 126.023,0.500015 130.5,4.97713 130.5,10.5L 130.5,75.5C 130.5,81.0228 126.023,85.5 120.5,85.5L 10.5,85.5C 4.97715,85.5 0.500002,81.0228 0.500002,75.5L 0.500002,10.5C 0.500002,4.97713 4.97715,0.500015 10.5,0.500015 Z" Margin="0,0,0,0" Style="{StaticResource BusinessArchitechPathItemStyle}" Grid.ColumnSpan="3" Stretch="Fill" Grid.RowSpan="3" />
+                        <Path Data="M 99.7501,8.66679L 112.75,8.66679C 116.064,8.66679 118.75,11.3531 118.75,14.6668L 118.75,14.6668C 118.75,17.9805 116.064,20.6668 112.75,20.6668L 99.7501,20.6668C 96.4363,20.6668 93.7501,17.9805 93.7501,14.6668L 93.7501,14.6668C 93.7501,11.3531 96.4363,8.66679 99.7501,8.66679 Z" Style="{StaticResource BusinessArchitechPathItemStyle}"  Stretch="Fill" Fill="White"  Grid.Column="1" Grid.Row="1"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- 业务分类样式 -->
+    <Style x:Key="BusinessClassifyStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource BusinessArchitechStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.099*"/>
+                            <ColumnDefinition Width="0.187*"/>
+                            <ColumnDefinition Width="0.412*"/>
+                            <ColumnDefinition Width="0.186*"/>
+                            <ColumnDefinition Width="0.116*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <Path Data="M 10.5,0.500015L 120.5,0.500015C 126.023,0.500015 130.5,4.97713 130.5,10.5L 130.5,75.5C 130.5,81.0228 126.023,85.5 120.5,85.5L 10.5,85.5C 4.97715,85.5 0.500002,81.0228 0.500002,75.5L 0.500002,10.5C 0.500002,4.97713 4.97715,0.500015 10.5,0.500015 Z" Margin="0,0,0,0" Style="{StaticResource BusinessArchitechPathItemStyle}" Grid.ColumnSpan="5" Stretch="Fill" Grid.RowSpan="3" />
+                        <Path Data="M 99.7501,8.66679L 112.75,8.66679C 116.064,8.66679 118.75,11.3531 118.75,14.6668L 118.75,14.6668C 118.75,17.9805 116.064,20.6668 112.75,20.6668L 99.7501,20.6668C 96.4363,20.6668 93.7501,17.9805 93.7501,14.6668L 93.7501,14.6668C 93.7501,11.3531 96.4363,8.66679 99.7501,8.66679 Z" Style="{StaticResource BusinessArchitechPathItemStyle}"  Stretch="Fill" Fill="White"  Grid.Column="3" Grid.Row="1"/>
+                        <Path Data="M 0.5,11.252L 12.2514,0.499985L 24.0027,11.252M 12.2514,0.499985L 12.2514,11.252" Style="{StaticResource BusinessArchitechPathItemStyle}"  Stretch="Fill"  Grid.Column="1"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- 业务流程样式 -->
+    <Style x:Key="BusinessProcedureStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource BusinessArchitechStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+
+                        <Path Data="F1 M 130.5,85.5L 0.5,85.5L 26.5003,43L 0.5,0.499985L 130.5,0.499985L 156.5,43L 130.5,85.5 Z" Margin="0,0,0,0" Style="{StaticResource BusinessArchitechPathItemStyle}" Grid.ColumnSpan="3" Stretch="Fill" Grid.RowSpan="3" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Brush x:Key="FlowChartPathItemStroke">#FFD69436</Brush>
+    <LinearGradientBrush x:Key="FlowChartPathItemBrush" StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#FAFBE9" Offset="0" />
+            <GradientStop Color="Orange" Offset="1" />
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <Style x:Key="FlowChartPathItemStyle" TargetType="Path">
+        <Setter Property="Fill" Value="#FFE9C0BE"/>
+        <Setter Property="Stroke" Value="#000000"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="StrokeLineJoin" Value="Round"/>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+    </Style>
+
+
+    <Style x:Key="SVGBusinessShapeStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+    </Style>
+
+    <Style x:Key="FlowChartStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+    </Style>
+
+    <Style x:Key="FlowChartProcessStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0,0 H 60 V40 H 0 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartDecisionStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0,20 L 30 0 L 60,20 L 30,40 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartDocumentStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0,0 H 60 V 40 C 30,30 30,50 0,40 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartDataStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 10,0 L 60 0 L 50,40 L 0,40 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartStartStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 10,20 A 20,20 0 1 1 50,20 A 20,20 0 1 1 10,20" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartPredefinedStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 50,0 V 40 M 10,0 V 40 M 0 0 H 60 V 40 H 0 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartStoredDataStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 5,0 H 60 A 40,40 0 0 0 60,40 H 5 A 40,40 0 0 1 5,0 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartInternalStorageStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0,10 H 60 M 10,0 V 40 M 0,0 H 60 V 40 H 0 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartSequentialDataStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 30,40 A 20,20 0 1 1 30,0 A 20,20 0 0 1 43,35 H 50 L 50,40 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartDirectDataStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="F 1 M 57,40 H 3 A 4,20 0 1 1 3,0 H 57 A 4,20.1 0 1 1 56,0" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartManualInputStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0 10 L 60,0 V 40 H 0 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartCardStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0 10 L 10,0 H 60 V 40 H 0 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartPaperTapeStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0,3 C 30,-7 30,13 60,3 V 37 C 30,47 30,27 0,37 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartDelayStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0,0 H 40 A 20,20 0 0 1 40,40 H 0 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartTerminatorStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 20,40 A 20,20 0 0 1 20,0 H 40 A 20,20 0 0 1 40,40 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartDisplayStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0,20 A 40,40 0 0 1 15,0 H 55 A 60,60 0 0 1 55,40 H 15 A 40,40, 0 0 1 0,20 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartLoopLimitStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0 10 L 10,0 H 50 L 60,10 V 40 H 0 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartPreparationStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0,20 L 10,0  H 50 L 60,20 L 50,40 H10 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartManualOperationStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0 0 H 60 L 50 40 H 10 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlowChartOffPageReferenceStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource FlowChartStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Path Data="M 0 0 H 60 V 20 L 30,40 L 0,20 Z" Style="{StaticResource FlowChartPathItemStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

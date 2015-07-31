@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cv="clr-namespace:WX.Windows.Diagram.Designer">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles/Shared.xaml"/>
+        <ResourceDictionary Source="Styles/ToolBar.xaml"/>
+        <ResourceDictionary Source="Styles/GroupBox.xaml"/>
+        <ResourceDictionary Source="Styles/Expander.xaml"/>
+        <ResourceDictionary Source="Styles/ScrollBar.xaml"/>
+        <ResourceDictionary Source="Styles/ScrollViewer.xaml"/>
+        <ResourceDictionary Source="Styles/Tooltip.xaml"/>
+        <ResourceDictionary Source="Styles/Slider.xaml"/>
+        <ResourceDictionary Source="ApplicationToolbar.xaml"/>
+        <ResourceDictionary Source="Connection.xaml"/>
+        <ResourceDictionary Source="DesignItem.xaml"/>
+        <ResourceDictionary Source="Toolbox.xaml"/>
+        <ResourceDictionary Source="ToolboxItem.xaml"/>
+        <ResourceDictionary Source="ZoomBox.xaml"/>
+        <ResourceDictionary Source="Stencils/FlowChartStencils.xaml"/>
+        <ResourceDictionary Source="Stencils/ShapeGroupStencils.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <cv:ConverterBoolToVisibility x:Key="ConverterBoolToVisibility"/>
+</ResourceDictionary>

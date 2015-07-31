@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cv="clr-namespace:WX.Windows.Diagram.Designer"
+                    >
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ShapeStyle/ConnectionStyle.xaml"/>
+        <ResourceDictionary Source="ShapeStyle/FlowChartStyle.xaml"/>
+        <ResourceDictionary Source="ShapeStyle/MixStyle.xaml"/>
+        <ResourceDictionary Source="ShapeStyle/TempStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

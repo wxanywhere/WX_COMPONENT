@@ -1,0 +1,367 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:cv="clr-namespace:WX.Windows.Diagram.Designer"
+                    xmlns:ds="clr-namespace:WX.Windows.Diagram.Designer;assembly=WX.Windows.Diagram.Designer.Kernel">
+
+    <cv:StringConvertImageSource x:Key="stringConvertImageSource"/>
+
+    <Brush x:Key="FlowChartStroke">#6f8ca5</Brush>
+
+    <Brush x:Key="FlowChartBrush">#f0ffff</Brush>
+
+    <Style x:Key="FlowChartItemStyle" TargetType="Path">
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="StrokeLineJoin" Value="Round"/>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+    </Style>
+
+    <Style x:Key="ShapeTextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="14"/>
+        <!--<Setter Property="FontFamily" Value="微软雅黑"/>-->
+        <Setter Property="SnapsToDevicePixels" Value="False"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+    </Style>
+
+
+    <!--____________________________________ SubProcessFSStyle Start ____________________________________-->
+
+    <!-- SubProcess-->
+    <!-- 过程 -->
+    <Style x:Key="SubProcessPathStyle" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,0 h 10 v 5 h -10 z M 1,0 v 5 M 9,0 v 5"/>
+    </Style>
+
+
+    <!-- 子流程 -->
+    <Style x:Key="SubProcessFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Background" Value="{StaticResource FlowChartBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FlowChartStroke}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <Path Style="{StaticResource SubProcessPathStyle}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}"/>
+                        <TextBlock Text="{TemplateBinding Text}" Style="{StaticResource ShapeTextBlockStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--____________________________________ SubProcessFSStyle Start ____________________________________-->
+
+
+    <!--____________________________________ DecisionFSStyle Start ____________________________________-->
+
+    <!-- Decision-->
+    <Style x:Key="DecisionPathStyle" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,20 L 30 0 L 60,20 L 30,40 Z"/>
+    </Style>
+
+    <!-- 判断 -->
+    <Style x:Key="DecisionFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Background" Value="{StaticResource FlowChartBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FlowChartStroke}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <Path Style="{StaticResource DecisionPathStyle}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}"/>
+                        <TextBlock Text="{TemplateBinding Text}" Style="{StaticResource ShapeTextBlockStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- 工作流 - 分支 -->
+    <Style x:Key="WorkflowBranchFSStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource DecisionFSStyle}">
+        <Setter Property="Text" Value="分支"/>
+    </Style>
+
+    <!-- 工作流 - 合并 -->
+    <Style x:Key="WorkflowMergerFSStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource DecisionFSStyle}">
+        <Setter Property="Text" Value="合并"/>
+    </Style>
+
+    <!--____________________________________ DecisionFSStyle End ____________________________________-->
+
+
+    <!--____________________________________ DataFSStyle Start ____________________________________-->
+
+    <!-- DataPathStyle-->
+    <Style x:Key="DataPathStyle" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 10,0 L 60 0 L 50,40 L 0,40 Z"/>
+    </Style>
+
+    <!-- 数据 -->
+    <Style x:Key="DataFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Background" Value="{StaticResource FlowChartBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FlowChartStroke}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <Path Style="{StaticResource DataPathStyle}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}"/>
+                        <TextBlock Text="{TemplateBinding Text}" Style="{StaticResource ShapeTextBlockStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--____________________________________ DataFSStyle End ____________________________________-->
+
+
+    <!--____________________________________ PreparationFSStyle Start ____________________________________-->
+
+    <!-- PreparationPathStyle-->
+    <Style x:Key="PreparationPathStyle" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,20 L 10,0  H 50 L 60,20 L 50,40 H10 Z"/>
+    </Style>
+
+    <!-- 准备 -->
+    <Style x:Key="PreparationFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Background" Value="{StaticResource FlowChartBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FlowChartStroke}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <Path Style="{StaticResource PreparationPathStyle}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}"/>
+                        <TextBlock Text="{TemplateBinding Text}" Style="{StaticResource ShapeTextBlockStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--____________________________________ PreparationFSStyle End ____________________________________-->
+
+
+    <!--____________________________________ ProcessSStyle Start ____________________________________-->
+
+    <!-- ProcessPathStyle-->
+    <Style x:Key="ProcessPathStyle" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+    </Style>
+
+    <!-- 过程 -->
+    <Style x:Key="ProcessFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Background" Value="{StaticResource FlowChartBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FlowChartStroke}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <Path Style="{StaticResource ProcessPathStyle}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}"/>
+                        <TextBlock Text="{TemplateBinding Text}" Style="{StaticResource ShapeTextBlockStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--____________________________________ ProcessSStyle End ____________________________________-->
+
+
+    <!--____________________________________ OffPageReferenceFSStyle Start ____________________________________-->
+
+    <!-- OffPageReferencePathStyle-->
+    <Style x:Key="OffPageReferencePathStyle" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0 0 H 60 V 20 L 30,40 L 0,20 Z"/>
+    </Style>
+
+    <!-- 引用 -->
+    <Style x:Key="OffPageReferenceFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Background" Value="{StaticResource FlowChartBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FlowChartStroke}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <Path Style="{StaticResource OffPageReferencePathStyle}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}"/>
+                        <TextBlock Text="{TemplateBinding Text}" Style="{StaticResource ShapeTextBlockStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--____________________________________ OffPageReferenceFSStyle End ____________________________________-->
+
+
+    <!--____________________________________ TerminatorFSStyle Start ____________________________________-->
+
+    <!-- TerminatorPathStyle-->
+    <Style x:Key="TerminatorPathStyle" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 20,40 A 20,20 0 0 1 20,0 H 40 A 20,20 0 0 1 40,40 Z"/>
+    </Style>
+
+    <!-- 终结器 -->
+    <Style x:Key="TerminatorFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Background" Value="{StaticResource FlowChartBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FlowChartStroke}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <Path Style="{StaticResource TerminatorPathStyle}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}"/>
+                        <TextBlock Text="{TemplateBinding Text}" Style="{StaticResource ShapeTextBlockStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- 工作流 - 开始 -->
+    <Style x:Key="WorkflowStartFSStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource TerminatorFSStyle}">
+        <Setter Property="Text" Value="开始"/>
+    </Style>
+
+    <!-- 工作流 - 结束 -->
+    <Style x:Key="WorkflowEndFSStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource TerminatorFSStyle}">
+        <Setter Property="Text" Value="结束"/>
+    </Style>
+
+    <!--____________________________________ TerminatorFSStyle End ____________________________________-->
+
+
+    <!--____________________________________ StartFSStyle Start ____________________________________-->
+
+    <!-- StartPathStyle-->
+    <Style x:Key="StartPathStyle" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 10,20 A 20,20 0 1 1 50,20 A 20,20 0 1 1 10,20"/>
+    </Style>
+
+    <!-- 开始 -->
+    <Style x:Key="StartFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Background" Value="{StaticResource FlowChartBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FlowChartStroke}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <Path Style="{StaticResource StartPathStyle}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}"/>
+                        <TextBlock Text="{TemplateBinding Text}" Style="{StaticResource ShapeTextBlockStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--____________________________________ StartFSStyle End ____________________________________-->
+
+
+    <!--____________________________________ TextFSStyle Start ____________________________________-->
+
+    <!-- 文本 -->
+    <Style x:Key="TextFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Background" Value="{StaticResource FlowChartBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FlowChartStroke}"/>
+        <Setter Property="Text" Value="请改文本"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <TextBlock Name="txtDis" Text="{TemplateBinding Text}" Style="{StaticResource ShapeTextBlockStyle}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter  TargetName ="txtDis"  Property="Text" Value="请改文本"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--____________________________________ TextFSStyle End ____________________________________-->
+
+
+    <!--____________________________________ TitleTopFSStyle Start ____________________________________-->
+
+    <!-- 标头文本 -->
+    <Style x:Key="TitleTopFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Background" Value="{StaticResource FlowChartBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FlowChartStroke}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <TextBlock Text="{TemplateBinding Text}" Style="{StaticResource ShapeTextBlockStyle}"/>
+                        </Border>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" Grid.Row="1" BorderThickness="1,0,1,1"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--____________________________________ TextFSStyle End ____________________________________-->
+
+
+    <!--____________________________________ TitleRightFSStyle Start ____________________________________-->
+
+    <!-- 标头文本 -->
+    <Style x:Key="TitleRightFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Background" Value="{StaticResource FlowChartBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FlowChartStroke}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <TextBlock Text="{TemplateBinding Text}" Style="{StaticResource ShapeTextBlockStyle}"/>
+                        </Border>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" Grid.Column="1" BorderThickness="0,1,1,1"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--____________________________________ TitleRightFSStyle End ____________________________________-->
+
+    <!--____________________________________ ImageFSStyle Start ____________________________________-->
+
+    <!-- Image -->
+    <Style x:Key="ImageFSStyle" TargetType="{x:Type ds:Shape}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ds:Shape}">
+                    <Grid>
+                        <Image Source="{Binding RelativeSource={RelativeSource Self},Path=TemplatedParent.Text, Converter={StaticResource stringConvertImageSource}}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Opacity" Value="0.6"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--南网Logo-->
+    <Style x:Key="NWImageFSStyle" TargetType="{x:Type ds:Shape}" BasedOn="{StaticResource ImageFSStyle}">
+        <Setter Property="Text" Value="pack://application:,,,/POM.Resource;component/Icons/NWLogo.jpg"/>
+    </Style>
+
+    <!--____________________________________ ImageFSStyle End ____________________________________-->
+
+</ResourceDictionary>

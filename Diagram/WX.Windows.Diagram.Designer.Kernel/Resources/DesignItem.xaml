@@ -1,0 +1,274 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:s="clr-namespace:WX.Windows.Diagram.Designer">
+
+    <ContextMenu x:Key="DesignItemContextMenu">
+        <MenuItem Header="Cut" Command="{x:Static ApplicationCommands.Cut}">
+            <MenuItem.Icon>
+                <Image Source="Images/Cut.png" Width="16"/>
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="Copy" Command="{x:Static ApplicationCommands.Copy}">
+            <MenuItem.Icon>
+                <Image Source="Images/Copy.png" Width="16"/>
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="Paste" Command="{x:Static ApplicationCommands.Paste}">
+            <MenuItem.Icon>
+                <Image Source="Images/Paste.png" Width="16"/>
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Header="Delete" Command="{x:Static ApplicationCommands.Delete}">
+            <MenuItem.Icon>
+                <Image Source="Images/Delete.png" Width="16"/>
+            </MenuItem.Icon>
+        </MenuItem>
+        <Separator/>
+        <MenuItem Header="分配" Command="{x:Static s:DesignerKernel.AssignDesignShape}" />
+        <Separator/>
+        <MenuItem Header="Grouping">
+            <MenuItem Header="Group" Command="{x:Static s:DesignCanvas.Group}">
+                <MenuItem.Icon>
+                    <Image Source="Images/Group.png" Width="16"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Ungroup" Command="{x:Static s:DesignCanvas.Ungroup}">
+                <MenuItem.Icon>
+                    <Image Source="Images/Ungroup.png" Width="16"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </MenuItem>
+        <MenuItem Header="Order">
+            <MenuItem Header="Bring Forward" Command="{x:Static s:DesignCanvas.BringForward}">
+                <MenuItem.Icon>
+                    <Image Source="Images/BringForward.png" Width="16"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Bring To Front" Command="{x:Static s:DesignCanvas.BringToFront}">
+                <MenuItem.Icon>
+                    <Image Source="Images/BringToFront.png" Width="16"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Send Backward" Command="{x:Static s:DesignCanvas.SendBackward}">
+                <MenuItem.Icon>
+                    <Image Source="Images/SendBackward.png" Width="16"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Send To Back" Command="{x:Static s:DesignCanvas.SendToBack}">
+                <MenuItem.Icon>
+                    <Image Source="Images/SendToBack.png" Width="16"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </MenuItem>
+    </ContextMenu>
+
+    <!-- Connector Style -->
+    <Style TargetType="{x:Type s:Connector}">
+        <Setter Property="Width" Value="7"/>
+        <Setter Property="Height" Value="7"/>
+        <Setter Property="Cursor" Value="Cross"/>
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:Connector}">
+                    <Grid>
+                        <!-- transparent extra space makes connector easier to hit -->
+                        <Rectangle Name="ConnectFocus" Visibility="Collapsed" Margin="-2" Fill="Red" StrokeThickness="2" Stroke="Red"/>
+                        <Rectangle Fill="Transparent" Margin="-2"/>
+                        <Rectangle Fill="Lavender" StrokeThickness="1" Stroke="#AA000080"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="s:Connector.IsConnectorMouseOver" Value="True">
+                            <Setter TargetName="ConnectFocus" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="s:Connector.IsConnectorMouseOver" Value="False">
+                            <Setter TargetName="ConnectFocus" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ThumbCorner" TargetType="{x:Type Rectangle}">
+        <Setter Property="SnapsToDevicePixels"
+                Value="true" />
+        <Setter Property="Stroke"
+                Value="LightSlateGray" />
+        <Setter Property="StrokeThickness"
+                Value=".5" />
+        <Setter Property="Width"
+                Value="7" />
+        <Setter Property="Height"
+                Value="7" />
+        <Setter Property="Margin"
+                Value="-2.5" />
+        <Setter Property="Fill" Value="White"/>
+    </Style>
+
+    <!-- ConnectorDecoratorTemplate Default Template -->
+    <ControlTemplate x:Key="ConnectorDecoratorTemplate" TargetType="{x:Type Control}">
+        <Grid Margin="-3">
+            <s:Connector x:Name="Left" Orientation="Left" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <s:Connector x:Name="Top" Orientation="Top" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <s:Connector x:Name="Right" Orientation="Right" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <s:Connector x:Name="Bottom" Orientation="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ResizeDecoratorTemplate" TargetType="{x:Type Control}">
+        <Grid>
+            <Grid Opacity="0"
+                              Margin="0">
+                <s:ResizeThumb Height="3"
+                                           Cursor="SizeNS"
+                                           VerticalAlignment="Top"
+                                           HorizontalAlignment="Stretch" />
+                <s:ResizeThumb Width="3"
+                                           Cursor="SizeWE"
+                                           VerticalAlignment="Stretch"
+                                           HorizontalAlignment="Left" />
+                <s:ResizeThumb Width="3"
+                                           Cursor="SizeWE"
+                                           VerticalAlignment="Stretch"
+                                           HorizontalAlignment="Right" />
+                <s:ResizeThumb Height="3"
+                                           Cursor="SizeNS"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Stretch" />
+                <s:ResizeThumb Width="7"
+                                           Height="7"
+                                           Margin="-2"
+                                           Cursor="SizeNWSE"
+                                           VerticalAlignment="Top"
+                                           HorizontalAlignment="Left" />
+                <s:ResizeThumb Width="7"
+                                           Height="7"
+                                           Margin="-2"
+                                           Cursor="SizeNESW"
+                                           VerticalAlignment="Top"
+                                           HorizontalAlignment="Right" />
+                <s:ResizeThumb Width="7"
+                                           Height="7"
+                                           Margin="-2"
+                                           Cursor="SizeNESW"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Left" />
+                <s:ResizeThumb Width="7"
+                                           Height="7"
+                                           Margin="-2"
+                                           Cursor="SizeNWSE"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Right" />
+            </Grid>
+            <Grid IsHitTestVisible="False"
+                              Opacity="1"
+                              Margin="0">
+                <Rectangle SnapsToDevicePixels="True"
+                                       StrokeThickness="1"
+                                       Margin="0">
+                    <Rectangle.Stroke>
+                        <LinearGradientBrush StartPoint="0, 0"
+                                                         EndPoint="1, .3"
+                                                         Opacity=".7">
+                            <GradientStop Color="SlateGray"
+                                                      Offset="0" />
+                            <GradientStop Color="LightGray"
+                                                      Offset=".5" />
+                            <GradientStop Color="SlateGray"
+                                                      Offset="1" />
+                        </LinearGradientBrush>
+                    </Rectangle.Stroke>
+                </Rectangle>
+                <Rectangle Style="{StaticResource ThumbCorner}"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top" />
+                <Rectangle Style="{StaticResource ThumbCorner}"
+                                     HorizontalAlignment="Right"
+                                     VerticalAlignment="Top" />
+                <Rectangle Style="{StaticResource ThumbCorner}"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Bottom" />
+                <Rectangle Style="{StaticResource ThumbCorner}"
+                                     HorizontalAlignment="Right"
+                                     VerticalAlignment="Bottom" />
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+
+    <!-- DragThumb Default Template -->
+    <Style TargetType="{x:Type s:DragThumb}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:DragThumb}">
+                    <Rectangle Fill="Transparent"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type s:Shape}">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+    </Style>
+    
+    <!-- DesignItem Style -->
+    <Style TargetType="{x:Type s:DesignItem}">
+        <Setter Property="MinWidth" Value="10"/>
+        <Setter Property="MinHeight" Value="10"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:DesignItem}">
+                    <Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                          ContextMenu="{StaticResource DesignItemContextMenu}">
+                        <!-- PART_DragThumb -->
+                        <s:DragThumb x:Name="PART_DragThumb" 
+                                     Cursor="SizeAll"/>
+                        <!-- PART_ContentPresenter -->
+                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                          HorizontalAlignment="Stretch"
+                                          VerticalAlignment="Stretch"
+                                          Content="{TemplateBinding ContentControl.Content}"
+                                          Margin="{TemplateBinding ContentControl.Padding}"/>
+                        <Button x:Name="PART_LinkButton" Width="12" Height="12" VerticalAlignment="Bottom"
+                            HorizontalAlignment="Right" Margin="0,0,-15,-10"
+                            Visibility="{TemplateBinding s:DesignItem.LinkButtonVisibility}"
+                            Style="{TemplateBinding s:DesignItem.LinkButtonStyle}"/>
+                        <!-- PART_ResizeDecorator -->
+                        <Control x:Name="PART_ResizeDecorator" 
+                                 Visibility="Collapsed"
+                                 Template="{StaticResource ResizeDecoratorTemplate}"/>
+                        <!-- PART_ConnectorDecorator -->
+                        <Control x:Name="PART_ConnectorDecorator"
+                                 Visibility="Hidden"
+                                 Template="{StaticResource ConnectorDecoratorTemplate}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Value="True" Binding="{Binding RelativeSource={RelativeSource Self},Path=IsGroup}">
+                            <Setter TargetName="PART_DragThumb" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Value="True" Binding="{Binding RelativeSource={RelativeSource Self},Path=IsSelected}"/>
+                                <Condition Value="{x:Static sys:Guid.Empty}" Binding="{Binding RelativeSource={RelativeSource Self},Path=ParentID}"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="PART_ResizeDecorator" Property="Visibility" Value="Visible"/>
+                        </MultiDataTrigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="PART_ConnectorDecorator" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <DataTrigger Value="True" Binding="{Binding RelativeSource={RelativeSource Self},Path=IsDragConnectionOver}">
+                            <Setter TargetName="PART_ConnectorDecorator" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Value="True" Binding="{Binding RelativeSource={RelativeSource Self},Path=IsGroup}">
+                            <Setter TargetName="PART_ConnectorDecorator" Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

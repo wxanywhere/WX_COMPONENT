@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cv="clr-namespace:WX.Windows.Diagram.Designer"
+                    >
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/WX.Windows.Diagram.Designer.Kernel;Component/Resources/MergedResources.xaml"/>
+        <ResourceDictionary Source="/WX.Windows.Diagram.Designer.Shapes;Component/Resources/MergedResources.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
