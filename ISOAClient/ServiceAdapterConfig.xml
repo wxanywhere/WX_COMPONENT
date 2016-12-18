@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ServiceAdapter>
+
+  <ProtocolPool>
+    <Protocol Key="debuglocal" ClassName="CallServiceByTCPISOA605">
+      <ServiceAddress Value="127.0.0.1:8888" />
+      <DataEncoding Value="gb2312" />
+      <ErrorEncoding Value="gb2312" />
+    </Protocol>
+
+    <Protocol  Key="test" ClassName="CallServiceByTCPISOA605"  >
+      <!--协议参数-->
+      <ServiceAddress  Value="10.111.45.84:62871"  />
+      <DataEncoding Value="UTF-8" />
+      <ErrorEncoding Value="UTF-8" />
+      <!--多服务器 <ServiceAddress Value="http://10.210.15.8:8432/req.idp&&http://10.210.15.9:8432/req.idp" />-->
+      <SessionID  Value="?SESSION_ID=fd33224eab3cdad7"  />
+      <AppGCID  Value="C6A8994143621132E040D20A120F712F"  />
+    </Protocol>
+
+  </ProtocolPool>
+
+  <!-- 
+     ServicePool节点设置默认参数及值,如Service节点设置有相同的参数，则以Service 节点设置值为准
+    
+    如下设置<ServicePool ProtocolKey="A"  ServicePrefix="IDP.XTZC." > 
+    表示所有服务默认采用协议名为A的对应方式调用服务， 服务名前缀为 PMS.JYPT.。
+    
+    参数作用域最小控制粒度为服务，方便应用程序中跨协议、跨服务组、跨IP调用服务     
+  -->
+
+  <!---概要设计-->
+
+  <!--服务设计-->
+  <ServicePool ProtocolKey="debuglocal"  ServicePrefix="IDP.WF." >
+    <Service  Name="S09_WFGL_CXSLXX" Title="xxx">
+      <Input>WF_SLXX</Input>
+      <Output>WF_SLXX</Output>
+      <SvcGuid>AF3FD26B4EA146698BC076C6921348FD</SvcGuid>
+    </Service>
+    <Service  Name="WFDY_CXLCDY" Title="查询流程定义">
+      <Input>WF_GZLDY</Input>
+      <Output>WF_GZLDY</Output>
+      <SvcGuid>AF3FD26B4EA146698BC076C6921348FD</SvcGuid>
+    </Service>
+    <Service  Name="WFGL_CXSLXX" Title="查询实例信息">
+      <Input>WF_SLXX</Input>
+      <Output>WF_SLXX</Output>
+      <SvcGuid>AF3FD26B4EA146698BC076C6921348FD</SvcGuid>
+    </Service>
+    <Service  Name="S10_FWSJ_CXFWB" Title="查询服务包">
+      <Input>DP_HEAD,T00_XT_GCXX,T10_FWBXXB</Input>
+      <Output>DP_HEAD,T10_FWBXXB</Output>
+      <SvcGuid>AF3FD26B4EA146698BC076C6921348FD</SvcGuid>
+    </Service>
+  </ServicePool>
+
+</ServiceAdapter>

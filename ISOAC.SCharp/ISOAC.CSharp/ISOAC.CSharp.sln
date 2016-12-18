@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISOAC.CSharp", "ISOAC.CSharp.csproj", "{A3862054-F098-4259-99F9-E505D898A39C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISOAC.CSharp.Testing", "..\ISOAC.CSharp.Testing\ISOAC.CSharp.Testing.csproj", "{C30A7EE5-DCEF-4B1F-920B-4FEEC71441F7}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://wx.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ISOAC.CSharp.csproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\ISOAC.CSharp.Testing\\ISOAC.CSharp.Testing.csproj
+		SccProjectName2 = ../ISOAC.CSharp.Testing
+		SccLocalPath2 = ..\\ISOAC.CSharp.Testing
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3862054-F098-4259-99F9-E505D898A39C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3862054-F098-4259-99F9-E505D898A39C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3862054-F098-4259-99F9-E505D898A39C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3862054-F098-4259-99F9-E505D898A39C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C30A7EE5-DCEF-4B1F-920B-4FEEC71441F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30A7EE5-DCEF-4B1F-920B-4FEEC71441F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30A7EE5-DCEF-4B1F-920B-4FEEC71441F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30A7EE5-DCEF-4B1F-920B-4FEEC71441F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

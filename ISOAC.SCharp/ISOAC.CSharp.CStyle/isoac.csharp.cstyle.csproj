@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3862054-F098-4259-99F9-E505D898A39C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ydtf.isoa</RootNamespace>
+    <AssemblyName>isoac.csharp.cstyle</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Assemblies\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>Assemblies\Debug\isoac.csharp.cstyle.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zlib.net">
+      <HintPath>Assemblies\Reference\zlib.net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="comm\attribute_helper.cs" />
+    <Compile Include="comm\isoac_helper.cs" />
+    <Compile Include="comm\member_textAttribute.cs" />
+    <Compile Include="model\url_model.cs" />
+    <Compile Include="comm\data_helper.cs" />
+    <Compile Include="comm\global_helper.cs" />
+    <Compile Include="enum\ec_errno.cs" />
+    <Compile Include="enum\head_flag.cs" />
+    <Compile Include="enum\excep_level.cs" />
+    <Compile Include="isoac.cs" />
+    <Compile Include="excep.cs" />
+    <Compile Include="notfound_excep.cs" />
+    <Compile Include="iisoac.cs" />
+    <Compile Include="struct\head_pack.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="struct\rea_pack.cs" />
+    <Compile Include="struct\req_pack.cs" />
+    <Compile Include="struct\req_rea_pack.cs" />
+    <Compile Include="struct\stub_pack.cs" />
+    <Compile Include="t_isoac.cs" />
+    <Compile Include="t_isoac_attr.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="design\DesignReference.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,70 @@
+﻿
+namespace ISOA
+{
+    public class TCPAdaptee
+    {
+    }
+}
+
+namespace ISOA
+{
+    public class HTTPAdaptee
+    {
+    }
+}
+
+public class Protocol
+{
+    string Name { get; set; }
+    ProtocolType ProtocolType { get; set; }
+}
+
+namespace ISOA
+{
+    /// <summary>
+    /// 协议类型
+    /// 
+    /// </summary>
+    public enum ProtocolType
+    {
+        TCPISOA605,
+        HTTPISOA605,
+    }
+}
+
+
+namespace ISOA
+{
+    public class  : ISOACBase
+    {
+
+    }
+}
+
+namespace ISOA
+{
+    public class ServiceAdapter
+    {
+        private AccessMode _AccessMode = AccessMode.Single;
+
+        public ServiceAdapter(AccessMode accessMode)
+        {
+            _AccessMode = accessMode;
+        }
+
+        public T[] Call<T>(string serviceName, params T[] parameters) where T:new()
+        {
+            if (_AccessMode == AccessMode.Single)
+            {
+                var isoc = new ISOACSingleChannel();
+            }
+            else
+            {
+                var isoc = new ISOACMultiChannel();
+            }
+
+            return new T[0];
+        }
+
+    }
+}

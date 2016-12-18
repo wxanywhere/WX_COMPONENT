@@ -1,0 +1,70 @@
+﻿
+namespace ydtf.isoa
+{
+    public class TCPAdaptee
+    {
+    }
+}
+
+namespace ydtf.isoa
+{
+    public class HTTPAdaptee
+    {
+    }
+}
+
+public class Protocol
+{
+    string Name { get; set; }
+    ProtocolType ProtocolType { get; set; }
+}
+
+namespace ydtf.isoa
+{
+    /// <summary>
+    /// 协议类型
+    /// 
+    /// </summary>
+    public enum ProtocolType
+    {
+        TCPISOA605,
+        HTTPISOA605,
+    }
+}
+
+
+namespace ydtf.isoa
+{
+    public class  : ISOACBase
+    {
+
+    }
+}
+
+namespace ydtf.isoa
+{
+    public class ServiceAdapter
+    {
+        private AccessMode _AccessMode = AccessMode.Single;
+
+        public ServiceAdapter(AccessMode accessMode)
+        {
+            _AccessMode = accessMode;
+        }
+
+        public T[] Call<T>(string svc_name, params T[] parameters) where T:new()
+        {
+            if (_AccessMode == AccessMode.Single)
+            {
+                var isoc = new ISOACSingleChannel();
+            }
+            else
+            {
+                var isoc = new ISOACMultiChannel();
+            }
+
+            return new T[0];
+        }
+
+    }
+}
